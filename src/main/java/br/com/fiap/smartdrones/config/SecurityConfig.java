@@ -35,6 +35,10 @@ public class SecurityConfig {
                     "/api-docs/**"
                 ).permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/drones/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/sensors/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/leituras/**").permitAll()
                 .requestMatchers("/api/users/**").hasAuthority("ADMIN")
                 .requestMatchers(HttpMethod.POST, "/api/drones/**").hasAuthority("ADMIN")
                 .requestMatchers(HttpMethod.PUT, "/api/drones/**").hasAuthority("ADMIN")
